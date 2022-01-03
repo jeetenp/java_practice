@@ -37,3 +37,10 @@ Here, e denotes extends, i denotes implements
 3. We can insert elements into the list at any location.
 4. The list allows storing duplicate elements in Java.
 5. ArrayList, vector, and LinkedList are three concrete subclasses that implement the list interface.
+
+### ArrayList
+
+1. ArrayList provides us with dynamic arrays in Java.
+2. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
+3. The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
+4. ArrayList allows us to randomly access the list
