@@ -16,3 +16,24 @@ The entire collection framework hierarchy is made up of four fundamental interfa
 The java.util package contains all of the collection framework's interfaces and classes. The following diagram depicts the Java collection structure.
 
 ![](../images/collection_hierarchy.png)
+
+Here, e denotes extends, i denotes implements
+
+![](../images/map_hierarchy.png)
+
+### Iterator and ListIterator
+
+
+| Iterator                                                                        | ListIterator                                                                                   |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| The Iterator traverses the elements in the forward direction only.              | ListIterator traverses the elements in backward and forward directions both.                   |
+| The Iterator can be used in List, Set, and Queue.                               | ListIterator can be used in List only.                                                         |
+| The Iterator can only perform remove operation while traversing the collection. | ListIterator can perform ?add,? ?remove,? and ?set? operation while traversing the collection. |
+
+## List
+
+1. Elements are arranged sequentially ordered.
+2. List maintains an order of elements means the order is retained in which we add elements, and the same sequence we will get while retrieving elements.
+3. We can insert elements into the list at any location.
+4. The list allows storing duplicate elements in Java.
+5. ArrayList, vector, and LinkedList are three concrete subclasses that implement the list interface.
