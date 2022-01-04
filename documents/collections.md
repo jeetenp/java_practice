@@ -1,3 +1,7 @@
+#Table Of Contents
+
+* [Collections](collections#Vector)
+
 # Collections
 
 ## Difference Collection and collections in the context of Java
@@ -38,33 +42,35 @@ Here, e denotes extends, i denotes implements
 4. The list allows storing duplicate elements in Java.
 5. ArrayList, vector, and LinkedList are three concrete subclasses that implement the list interface.
 
+![](../images/collection_list_hierarchy.png)
+
 ### ArrayList
 
-1. ArrayList provides us with dynamic arrays in Java.
-2. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
-3. The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
-4. ArrayList allows us to randomly access the list
+* ArrayList provides us with dynamic arrays in Java.
+* Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
+* The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
+* ArrayList allows us to randomly access the list
 
 ### LinkedList
 
-1. A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
-2. In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
-3. The elements in a linked list are linked using pointers as shown in the below image:
+* A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
+* In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+* The elements in a linked list are linked using pointers as shown in the below image:
 
 ![](../images/linkedlist.png)
 
 ### Vector
 
-1. A vector provides us with dynamic arrays in Java.
-2. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
-3. This is identical to ArrayList in terms of implementation. However, the primary difference between a vector and an ArrayList is that a <ins>**Vector is synchronized**</ins> and an <ins>**ArrayList is non-synchronized**</ins>.
+* A vector provides us with dynamic arrays in Java.
+* Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
+* This is identical to ArrayList in terms of implementation. However, the primary difference between a vector and an ArrayList is that a <ins>**Vector is synchronized**</ins> and an <ins>**ArrayList is non-synchronized**</ins>.
 
 ### Stack
 
-1. The stack is the subclass of Vector.
-2. It implements the last-in-first-out data structure, i.e., Stack.
-3. The stack contains all of the methods of Vector class and
-4. also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
+* The stack is the subclass of Vector.
+* It implements the last-in-first-out data structure, i.e., Stack.
+* The stack contains all of the methods of Vector class and
+* also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
 
 ![](../images/stack.png)
 
@@ -79,8 +85,6 @@ Here, e denotes extends, i denotes implements
 | ArrayList takes less memory overhead as it stores only object | LinkedList takes more memory overhead, as it stores the object as |
 | well as the address of that object.                           |                                                                   |
 
-
-
 ## ArrayList and Vector
 
 
@@ -91,3 +95,47 @@ Here, e denotes extends, i denotes implements
 | ArrayList increases its size by 50% of the array size.    | Vector increases its size by doubling the array size.              |
 | ArrayList is not ?thread-safe? as it is not synchronized. | Vector list is ?thread-safe? as it?s every method is synchronized. |
 
+## Set Interface
+
+* This interface represents a collection of elements that contains unique elements
+* Set interface does not maintain any order while storing elements and while retrieving, we may not get the same order as we put elements.
+* Set does not allow any duplicate elements.
+* <ins>**HashSet, LinkedHashSet, TreeSet**</ins> classes implements the set interface and sorted interface extends a set interface.
+
+![](../images/collection_set_hierarchy.png)
+
+### HashSet
+
+`public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Serializable`
+
+* Uses a hash table for storage.
+* It inherits the AbstractSet class and implements Set interface.
+* contains unique elements only.
+* allows null value.
+* class is non synchronized.
+* <ins>**Does not maintain order**<ins>
+* HashSet is the best approach for search operations.
+* The initial default capacity of HashSet is 16, and the load factor is 0.75.
+
+![](../images/hashset.png)
+
+### LinkedHashSet
+
+`public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, Serializable`
+
+* Ordered version of HashSet
+* LinkedHashSet class is a Hashtable and Linked list implementation of the set interface.
+* It inherits HashSet class and implements Set interface.
+* Contains unique elements only like HashSet
+* Allows null value
+* Class is non synchronized.
+* <ins>**Maintains order**<ins>
+
+![](../images/linkedhashset.png)
+
+## SortedSet Interface
+
+* This interface extends a set, provides a ordering on its elements.
+* <ins>**TreeSet**</ins> implements the sorted interface.
+
+### TreeSet
