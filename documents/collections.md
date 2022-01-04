@@ -51,7 +51,7 @@ Here, e denotes extends, i denotes implements
 2. In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
 3. The elements in a linked list are linked using pointers as shown in the below image:
 
-![](/media/jeeten/d-drive/java_workspace/java_practice/images/linkedlist.png)
+![](../images/linkedlist.png)
 
 ### Vector
 
@@ -66,7 +66,7 @@ Here, e denotes extends, i denotes implements
 3. The stack contains all of the methods of Vector class and
 4. also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
 
-![](/media/jeeten/d-drive/java_workspace/java_practice/images/stack.png)
+![](../images/stack.png)
 
 ## ArrayList and LinkedList
 
