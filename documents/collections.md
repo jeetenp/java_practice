@@ -66,7 +66,6 @@ Here, e denotes extends, i denotes implements
 3. The stack contains all of the methods of Vector class and
 4. also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
 
-![](/media/jeeten/d-drive/java_workspace/java_practice/images/stack.png)
 
 ## ArrayList and LinkedList
 
