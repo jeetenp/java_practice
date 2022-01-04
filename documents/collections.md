@@ -90,3 +90,4 @@ Here, e denotes extends, i denotes implements
 | ArrayList is not a legacy class.                          | Vector is a legacy class.                                          |
 | ArrayList increases its size by 50% of the array size.    | Vector increases its size by doubling the array size.              |
 | ArrayList is not ?thread-safe? as it is not synchronized. | Vector list is ?thread-safe? as it?s every method is synchronized. |
+
