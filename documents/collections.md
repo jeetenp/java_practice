@@ -131,6 +131,8 @@ Here, e denotes extends, i denotes implements
 * Class is non synchronized.
 * <ins>**Maintains order**<ins>
 
+1. [Example 1](../src/main/java/org/learning/javapractice/collections/set/LinkedHashSetExample1.java)
+
 ![](../images/linkedhashset.png)
 
 ## SortedSet Interface
