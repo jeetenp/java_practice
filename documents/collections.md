@@ -1,6 +1,6 @@
 #Table Of Contents
 
-* [Collections](collections#Vector)
+
 
 # Collections
 
@@ -141,3 +141,17 @@ Here, e denotes extends, i denotes implements
 * <ins>**TreeSet**</ins> implements the sorted interface.
 
 ### TreeSet
+
+1. It inherits AbstractSet class and implements the NavigableSet interface.
+2. Contains unique elements only like HashSet
+3. TreeSet class doesn't allow null element.
+4. TreeSet class is non synchronized.
+5. Objects are stored in sorted, ascending order. But we can iterate in descending order using method TreeSet.descendingIterator().
+6. TreeSet class access and retrieval times are quiet fast.
+7. TreeSet doesn’t use hashCode() and equals() methods to compare it’s elements. 
+8. It uses compare() (or compareTo()) method to determine the equality of two elements.
+
+![](../images/treeset.png)
+
+
+
