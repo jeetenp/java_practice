@@ -1,6 +1,15 @@
 #Table Of Contents
 
-
+Collections
+  * [List](#list)
+    * [ArrayList]()
+    * [LinkedList]()
+    * [Vector]()
+      * [Stack]()
+  * [Set]()
+    * [HashSet]()
+    * [LinkedHashSet]()
+    * [TreeSet]()
 
 # Collections
 
@@ -34,7 +43,7 @@ Here, e denotes extends, i denotes implements
 | The Iterator can be used in List, Set, and Queue.                               | ListIterator can be used in List only.                                                         |
 | The Iterator can only perform remove operation while traversing the collection. | ListIterator can perform ?add,? ?remove,? and ?set? operation while traversing the collection. |
 
-## List
+## List {#list}
 
 1. Elements are arranged sequentially ordered.
 2. List maintains an order of elements means the order is retained in which we add elements, and the same sequence we will get while retrieving elements.
@@ -148,10 +157,7 @@ Here, e denotes extends, i denotes implements
 4. TreeSet class is non synchronized.
 5. Objects are stored in sorted, ascending order. But we can iterate in descending order using method TreeSet.descendingIterator().
 6. TreeSet class access and retrieval times are quiet fast.
-7. TreeSet doesn’t use hashCode() and equals() methods to compare it’s elements. 
+7. TreeSet doesn’t use hashCode() and equals() methods to compare it’s elements.
 8. It uses compare() (or compareTo()) method to determine the equality of two elements.
 
 ![](../images/treeset.png)
-
-
-

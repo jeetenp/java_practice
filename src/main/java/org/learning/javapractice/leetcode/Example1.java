@@ -1,4 +1,4 @@
-package org.learning.javapractice.leetcode.array;
+package org.learning.javapractice.leetcode;
 
 public class Example1 {
 
