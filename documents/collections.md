@@ -1,15 +1,21 @@
 #Table Of Contents
 
-Collections
-  * [List](#list)
-    * [ArrayList]()
-    * [LinkedList]()
-    * [Vector]()
-      * [Stack]()
-  * [Set]()
-    * [HashSet]()
-    * [LinkedHashSet]()
-    * [TreeSet]()
+- [Collections](#collections)
+  - [Difference Collection and collections in the context of Java](#difference-collection-and-collections-in-the-context-of-java)
+  - [Hierarchy of the Collection framework](#hierarchy-of-the-collection-framework)
+    - [Iterator and ListIterator](#iterator-and-listiterator)
+  - [List {#list}](#list-list)
+    - [ArrayList](#arraylist)
+    - [LinkedList](#linkedlist)
+    - [Vector](#vector)
+    - [Stack](#stack)
+  - [ArrayList and LinkedList](#arraylist-and-linkedlist)
+  - [ArrayList and Vector](#arraylist-and-vector)
+  - [Set Interface](#set-interface)
+    - [HashSet](#hashset)
+    - [LinkedHashSet](#linkedhashset)
+  - [SortedSet Interface](#sortedset-interface)
+    - [TreeSet](#treeset)
 
 # Collections
 
