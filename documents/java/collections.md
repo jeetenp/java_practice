@@ -24,21 +24,28 @@
 
 | Collection                                                                                                                                                                               | Collections                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Collection is a interface present in java.util.package                                                                                                                                   | Collections is a utility class present in java.util.package                                                                      |
+| Collection is a **interface** present in java.util.package                                                                                                                                   | Collections is a utility **class** present in java.util.package                                                                      |
 | The collection is considered as the root interface of the collection framework. It provides several classes and interfaces to represent a group of individual objects as a single unit. | It defines several utility methods like sorting and searching which is used to operate on collection. It has all static methods. |
 | Since Java 8, the Collection is an interface with a static function. Abstract and default methods can also be found in the Interface.                                                   | It only has static methods in it.                                                                                                |
 
 ## Hierarchy of the Collection framework
 
-The entire collection framework hierarchy is made up of four fundamental interfaces: Collection, List, Set, Map, and two specific interfaces for sorting called SortedSet and SortedMap.
+Collection framework hierarchy is made up of four fundamental interfaces: 
+* Collection, 
+* List, 
+* Set, 
+* Map, 
+and two specific interfaces for sorting called 
+* SortedSet and 
+* SortedMap.
 
-The java.util package contains all of the collection framework's interfaces and classes. The following diagram depicts the Java collection structure.
+The **java.util** package contains all of the collection framework's interfaces and classes. The following diagram depicts the Java collection structure.
 
-![](../images/collection_hierarchy.png)
+![](../../images/collection_hierarchy.png)
 
 Here, e denotes extends, i denotes implements
 
-![](../images/map_hierarchy.png)
+![](../../images/map_hierarchy.png)
 
 ### Iterator and ListIterator
 
@@ -57,7 +64,7 @@ Here, e denotes extends, i denotes implements
 4. The list allows storing duplicate elements in Java.
 5. ArrayList, vector, and LinkedList are three concrete subclasses that implement the list interface.
 
-![](../images/collection_list_hierarchy.png)
+![](../../images/collection_list_hierarchy.png)
 
 ### ArrayList
 
@@ -66,19 +73,32 @@ Here, e denotes extends, i denotes implements
 * The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
 * ArrayList allows us to randomly access the list
 
+```java
+ArrayList<Integer> arrlist = new ArrayList<Integer>(n);
+```
+
 ### LinkedList
 
 * A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
 * In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+
+```java
+LinkedList llist = new LinkedList();
+```
+
 * The elements in a linked list are linked using pointers as shown in the below image:
 
-![](../images/linkedlist.png)
+![](../../images/linkedlist.png)
 
 ### Vector
 
 * A vector provides us with dynamic arrays in Java.
 * Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
 * This is identical to ArrayList in terms of implementation. However, the primary difference between a vector and an ArrayList is that a <ins>**Vector is synchronized**</ins> and an <ins>**ArrayList is non-synchronized**</ins>.
+
+```java
+Vector<Integer> v = new Vector();
+```
 
 ### Stack
 
@@ -87,7 +107,11 @@ Here, e denotes extends, i denotes implements
 * The stack contains all of the methods of Vector class and
 * also provides its methods like boolean push(), boolean peek(), boolean push(object o), which defines its properties.
 
-![](../images/stack.png)
+```java
+    Stack<E> stack = new Stack<E>();
+```
+
+![](../../images/stack.png)
 
 ## ArrayList and LinkedList
 
@@ -117,7 +141,7 @@ Here, e denotes extends, i denotes implements
 * Set does not allow any duplicate elements.
 * <ins>**HashSet, LinkedHashSet, TreeSet**</ins> classes implements the set interface and sorted interface extends a set interface.
 
-![](../images/collection_set_hierarchy.png)
+![](../../images/collection_set_hierarchy.png)
 
 ### HashSet
 
@@ -132,11 +156,18 @@ Here, e denotes extends, i denotes implements
 * HashSet is the best approach for search operations.
 * The initial default capacity of HashSet is 16, and the load factor is 0.75.
 
-![](../images/hashset.png)
+```java
+HashSet hs = new HashSet();
+```
+
+
+![](../../images/hashset.png)
 
 ### LinkedHashSet
 
-`public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, Serializable`
+```java
+public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, Serializable
+```
 
 * Ordered version of HashSet
 * LinkedHashSet class is a Hashtable and Linked list implementation of the set interface.
@@ -146,9 +177,9 @@ Here, e denotes extends, i denotes implements
 * Class is non synchronized.
 * <ins>**Maintains order**<ins>
 
-1. [Example 1](../src/main/java/org/learning/javapractice/collections/set/LinkedHashSetExample1.java)
+1. [Example 1](../../src/main/java/org/learning/javapractice/collections/set/LinkedHashSetExample1.java)
 
-![](../images/linkedhashset.png)
+![](../../images/linkedhashset.png)
 
 ## SortedSet Interface
 
@@ -166,4 +197,4 @@ Here, e denotes extends, i denotes implements
 7. TreeSet doesn’t use hashCode() and equals() methods to compare it’s elements.
 8. It uses compare() (or compareTo()) method to determine the equality of two elements.
 
-![](../images/treeset.png)
+![](../../images/treeset.png)
