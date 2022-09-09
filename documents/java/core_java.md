@@ -5,12 +5,144 @@
 ## Table Of Contents
 
 
-| No. | Topics                                                                            |
-| --- | --------------------------------------------------------------------------------- |
-| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
+| No. | Topics                                                                          |
+| --- |---------------------------------------------------------------------------------|
+| *   | [SOLID Principles](#Solid-Principle)                                            |
+| *   | [12 Factor App](#12-Factor-App)                                                 |
+| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                            |
 | *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
-| *   | [Memory Management](#memory-management)                                           |
+| *   | [Memory Management](#memory-management)                                         |
+| *   | [Immutable Objects](#Immutable-object)                                          |
 
+
+## 12 Factor App
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+The 12 Factor App methodology is pattern to designing scalable application architecture.
+
+1. Codebase
+2. Dependencies
+3. Config
+4. Backing services
+5. Build, release, run
+6. Processes
+7. Port binding
+8. Concurrency
+9. Disposability
+10. Dev/prod parity
+11. Logs
+12. Admin processes
+
+
+### Codebase
+One codebase tracked in revision control, many deploys
+
+The Codebase principle states that all assets related to an application, everything from source code, the provisioning script, and configuration settings, are stored in a source code repository that is accessible to development, testing.
+
+![](../../images/core_java/12_factor_app_codebase.png)
+
+### Dependencies
+
+Explicitly declare and isolate dependencies.
+
+You want to avoid storing artifacts along with source code in the source code repository.
+
+### Config
+
+Store config in the environment
+
+The Config principle states that configuration information is injected into the runtime environment as environment variables or as settings defined in an independent configuration file.
+![](../../images/core_java/12_factor_app_config.png)
+
+
+### Backing services
+
+Treat backing services as attached resources
+
+The Backing Services principle encourages architects to treat external components such as databases, email servers, message brokers, and independent services that can be provisioned and maintained by systems personnel as attached resources.
+
+![](../../images/core_java/12_factor_app_backing_service.png)
+
+
+### Build, release, run
+
+Strictly separate build and run stages
+
+Build, Release, and Run breaks the deployment process down into three replicable stages that can be instantiated at any time.
+
+* Build stage is where code is retrieved from the source code management system and built/compiled into artifacts stored in an artifact repository.
+* Release stage : After the code is built, configuration settings are applied in the Release stage.
+* Run stage, a runtime environment is provisioned via scripts using a tool such as Ansible. 
+
+The application and its dependencies are deployed into the newly provisioned runtime environment.
+
+
+### Processes
+
+Execute the app as one or more stateless processes
+
+
+
+
+### Port binding
+
+### Concurrency
+
+### Disposability
+
+### Dev/prod parity
+
+### Logs
+
+### Admin processes
+
+
+[Back To Top](#Table-Of-Contents)
+
+
+
+## Solid Principle
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+References: 
+* [https://www.baeldung.com/solid-principles](https://www.baeldung.com/solid-principles)
+
+
+It is conceptualized by Robert C. Martin (also known as Uncle Bob) in his 2000 paper “Design Principles and Design Patterns.”
+
+These design principles encourage us to create more maintainable, understandable, and flexible software.
+
+The word SOLID acronym for:
+
+* Single Responsibility Principle (SRP)
+* Open-Closed Principle (OCP)
+* Liskov Substitution Principle (LSP)
+* Interface Segregation Principle (ISP)
+* Dependency Inversion Principle (DIP)
+
+### Single Responsibility Principle (SRP)
+Every Java class must perform a single functionality
+
+### Open-Closed Principle (OCP)
+Open for extension but closed for modification. The extension allows us to implement new functionality to the module.
+
+### Liskov Substitution Principle (LSP)
+
+It applies to inheritance in such a way that the derived classes must be completely substitutable for their base classes. 
+
+In other words, if class A is a subtype of class B, then we should be able to replace B with A without interrupting the behavior of the program.
+
+### Interface Segregation Principle (ISP)
+Larger interfaces should be split into smaller ones. Because the implementation classes use only the methods that are required. We should not force the client to use the methods that they do not want to use.
+
+### Dependency Inversion Principle (DIP)
+The principle states that we must use abstraction (abstract classes and interfaces) instead of concrete implementations.
+
+High-level modules should not depend on the low-level module but both should depend on the abstraction. Because the abstraction does not depend on detail but the detail depends on abstraction. It decouples the software.
+
+[Back To Top](#Table-Of-Contents)
 
 
 ## Explain JRE JDK and JVM
@@ -182,5 +314,59 @@ In this phase, all static variables are assigned with their values defined in th
 ## Memory Management
 
 ![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+## Immutable Objects
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+An immutable object is an object whose internal state remains constant after it has been entirely created.
+
+Example : String class
+
+To create immutable because:
+* declare the class as final, so it cannot be extended 
+* all class members should be private, so they cannot be accessed outside of class 
+* class members are only initialized using constructor
+* shouldn't contain any setter methods to change the value of class members 
+* the getter method should return the copy of class members 
+
+Example given below:
+
+```
+ // class is declared final, so it cannot be extended 
+final class ImmutableClass {
+
+  // private class members, so they cannot be accessed outside of class 
+  private String name;
+
+  ImmutableClass(String name) {
+    // class members are initialized using constructor
+    this.name = name;
+  }
+
+  // getter method returns the copy of class members
+  public String getName() {
+    return name;
+  }
+}
+```
+
+[Back To Top](#Table-Of-Contents)
+
+## Title of Topic
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+Body of the topic
+
+[Back To Top](#Table-Of-Contents)
+
+## Title of Topic
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+Body of the topic
 
 [Back To Top](#Table-Of-Contents)
