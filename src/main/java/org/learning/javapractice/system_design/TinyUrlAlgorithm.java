@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TinyUrlAlgorithm {
     public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        byte[] input = "https://www.educative.io/courses/grokking-the-system-design-interview".getBytes("UTF-8");//args[0].getBytes("UTF-16");//"https://www.educative.io/courses/grokking-the-system-design-interview".getBytes("UTF-8");
+        byte[] input = "https://www.educative.io/courses/grokking-the-system-design-interview".getBytes("UTF-8");
         byte[] md5hash = messageDigest.digest(input);
         Base64.Encoder encoder = Base64.getEncoder();
         String encodeToString = encoder.encodeToString(md5hash);
@@ -29,7 +29,6 @@ public class TinyUrlAlgorithm {
             int randomIndex =  random.nextInt(i+1);
             swap(encodedChars,randomIndex,i);
         }
-
         return new String(encodedChars,0,8);
     }
 

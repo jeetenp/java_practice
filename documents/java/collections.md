@@ -148,7 +148,7 @@ Vector<Integer> v = new Vector();
 `public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Serializable`
 
 * Uses a hash table for storage.
-* It inherits the AbstractSet class and implements Set interface.
+  * It inherits the AbstractSet class and implements Set interface.
 * contains unique elements only.
 * allows null value.
 * class is non synchronized.

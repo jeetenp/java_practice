@@ -1,0 +1,3 @@
+k#inputArr1#inputArr2#expected
+10#2,1,3#7,8,9#YES
+5#1,2,2,1#3,3,3,4#NO

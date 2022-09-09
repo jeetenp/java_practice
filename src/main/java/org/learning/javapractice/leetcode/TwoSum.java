@@ -8,7 +8,7 @@ public class TwoSum {
     public static void main(String[] args) {
         TwoSum service = new TwoSum();
         int[] nums = new int[]{2, 7, 11, 15};
-        int target = 9;
+        int target = 18;
         int[] ints = service.twoSum(nums, target);
         System.out.println(ints[0] + " - " + ints[1]);
     }

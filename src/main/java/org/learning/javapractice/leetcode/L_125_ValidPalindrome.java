@@ -14,7 +14,10 @@ public class L_125_ValidPalindrome {
         System.out.println(String.format("%s = %s", s2, service.isPalindrome(s2)));
         System.out.println(String.format("%s = %s", s3, service.isPalindrome(s3)));
     }
+    public boolean isPalindrome1(String s) {
 
+        return true;
+    }
     public boolean isPalindrome(String s) {
         int i = 0;
         List<String> ls = new ArrayList<>();

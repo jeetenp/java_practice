@@ -12,3 +12,9 @@ HashMap is a part of the Java collection framework.
 * There are four fields in HashMap.
 
 ![](../../images/hashmap_node.png)
+
+https://www.youtube.com/watch?v=f0n5-LPMSXU
+
+Override equals and hascode
+
+https://www.geeksforgeeks.org/override-equalsobject-hashcode-method/

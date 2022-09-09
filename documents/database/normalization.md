@@ -5,7 +5,7 @@ Reference https://www.simplilearn.com/tutorials/sql-tutorial/what-is-normalizati
 
 Normalization is the process of removing redundant data from the database by splitting the table in a well-defined manner in order to maintain data integrity. This process saves much of the storage space.
 
-##First Normal Form (1NF)
+## First Normal Form (1NF)
 A relation is said to be in 1NF only when 
 * all the entities of the table contain unique or atomic values.
 * if atomicity of the table is 1.
@@ -71,3 +71,5 @@ A relation is said to be in 3NF only if
 * Every Right-Hand Side (RHS) attribute of the functional dependencies should depend on the super key of that particular table.
 
 ![](../../images/database/bcnf_eg_1.png)
+
+ddddd
