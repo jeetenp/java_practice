@@ -6,21 +6,20 @@
 
 
 | No. | Topics                                                                            |
-|-----|-----------------------------------------------------------------------------------|
+| --- | --------------------------------------------------------------------------------- |
 | *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
 | *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
 | *   | [Memory Management](#memory-management)                                           |
 
-
-## Explain JRE JDK and JVM
+## ![](../../images/red_circle_24.png) Explain JRE JDK and JVM
 
 ---
+
+[Back To Top](#Table-Of-Contents)
 
 ![](../../images/core_java/jdk_jre_jvm.png)
 
 ### **JDK (Java Development Kit)**
-
----
 
 JDK is a Kit that provides the environment to develop and execute(run) the Java program. JDK is a kit(or package) that includes two things
 
@@ -43,9 +42,11 @@ JRE is an installation package that provides an environment to only run(not to d
 
 [Back To Top](#Table-Of-Contents)
 
-## **JVM (Java Virtual Machine) Architecture**
+## ![](../../images/red_circle_24.png) **JVM (Java Virtual Machine) Architecture**
 
 ---
+
+[Back To Top](#Table-Of-Contents)
 
 * JVM is a very important part of both JDK and JRE because it is contained or inbuilt in both.
 * Whatever Java program you run using JRE or JDK goes into JVM and
@@ -175,6 +176,8 @@ In this phase, all static variables are assigned with their values defined in th
 
 [Back To Top](#Table-Of-Contents)
 
-## Memory Management
+## ![](../../images/red_circle_24.png) Memory Management
 
 ---
+
+[Back To Top](#Table-Of-Contents)
