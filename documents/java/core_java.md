@@ -11,9 +11,12 @@
 | *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
 | *   | [Memory Management](#memory-management)                                           |
 
-## ![](../../images/red_circle_24.png) Explain JRE JDK and JVM
 
----
+
+## Explain JRE JDK and JVM
+
+![](../../images/line.png)
+
 
 [Back To Top](#Table-Of-Contents)
 
@@ -42,9 +45,9 @@ JRE is an installation package that provides an environment to only run(not to d
 
 [Back To Top](#Table-Of-Contents)
 
-## ![](../../images/red_circle_24.png) **JVM (Java Virtual Machine) Architecture**
+## **JVM (Java Virtual Machine) Architecture**
 
----
+![](../../images/line.png)
 
 [Back To Top](#Table-Of-Contents)
 
@@ -176,8 +179,8 @@ In this phase, all static variables are assigned with their values defined in th
 
 [Back To Top](#Table-Of-Contents)
 
-## ![](../../images/red_circle_24.png) Memory Management
+## Memory Management
 
----
+![](../../images/line.png)
 
 [Back To Top](#Table-Of-Contents)
