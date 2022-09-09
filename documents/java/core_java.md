@@ -3,21 +3,20 @@
 ---
 
 Table Of Contents
------------------
 
-* [Explain JRE, KDK and JVM](#explain-jre-jdk-and-jvm)
-* [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture)
-* [Memory Management](#memory-management)
 
-<div style="page-break-after: always"></div>
+| No. | Topics                                                                            |
+|-----|-----------------------------------------------------------------------------------|
+| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
+| *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
+| *   | [Memory Management](#memory-management)                                           |
 
-## Explain JRE, JDK and JVM
+
+## Explain JRE JDK and JVM
 
 ---
 
 ![](../../images/core_java/jdk_jre_jvm.png)
-
-<div style="page-break-after: always"></div>
 
 ### **JDK (Java Development Kit)**
 
@@ -41,8 +40,6 @@ JRE is an installation package that provides an environment to only run(not to d
 * JVM is a very important part of both JDK and JRE because it is contained or inbuilt in both.
 * Whatever Java program you run using JRE or JDK goes into JVM and
 * JVM is responsible for executing the java program line by line, hence it is also known as an interpreter.
-
-<div style="page-break-after: always"></div>
 
 ## **JVM (Java Virtual Machine) Architecture**
 
@@ -174,9 +171,6 @@ In this phase, all static variables are assigned with their values defined in th
 
 * It is a collection of the Native Libraries(C, C++) which are required by the Execution Engine.
 
-<div style="page-break-after: always"></div>
-
 ## Memory Management
 
 ---
-
