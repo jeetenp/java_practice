@@ -2,7 +2,7 @@
 
 ---
 
-Table Of Contents
+## Table Of Contents
 
 
 | No. | Topics                                                                            |
@@ -40,6 +40,8 @@ JRE is an installation package that provides an environment to only run(not to d
 * JVM is a very important part of both JDK and JRE because it is contained or inbuilt in both.
 * Whatever Java program you run using JRE or JDK goes into JVM and
 * JVM is responsible for executing the java program line by line, hence it is also known as an interpreter.
+
+[Back To Top](#Table-Of-Contents)
 
 ## **JVM (Java Virtual Machine) Architecture**
 
@@ -170,6 +172,8 @@ In this phase, all static variables are assigned with their values defined in th
 ### Native Method Libraries :
 
 * It is a collection of the Native Libraries(C, C++) which are required by the Execution Engine.
+
+[Back To Top](#Table-Of-Contents)
 
 ## Memory Management
 
