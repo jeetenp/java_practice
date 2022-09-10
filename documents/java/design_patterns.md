@@ -32,6 +32,13 @@ Provide object creation mechanisms that increase flexibility and reuse of existi
 * Prototype
 * Singleton
 
+![](../../images/design_patterns/cp_1.png)
+![](../../images/design_patterns/cp_2.png)
+![](../../images/design_patterns/cp_3.png)
+![](../../images/design_patterns/cp_4.png)
+![](../../images/design_patterns/cp_5.png)
+
+
 ### Structural patterns 
 
 Explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
@@ -43,6 +50,15 @@ Explain how to assemble objects and classes into larger structures, while keepin
 * Facade
 * Flyweight:   Also known as: Cache
 * Proxy
+
+![](../../images/design_patterns/sp_1.png)
+![](../../images/design_patterns/sp_2.png)
+![](../../images/design_patterns/sp_3.png)
+![](../../images/design_patterns/sp_4.png)
+![](../../images/design_patterns/sp_5.png)
+![](../../images/design_patterns/sp_6.png)
+![](../../images/design_patterns/sp_7.png)
+
 
 ### Behavioral patterns 
 
@@ -57,6 +73,17 @@ Take care of effective communication and the assignment of responsibilities betw
 * Strategy
 * Template Method
 * Visitor
+
+![](../../images/design_patterns/bp_1.png)
+![](../../images/design_patterns/bp_2.png)
+![](../../images/design_patterns/bp_3.png)
+![](../../images/design_patterns/bp_4.png)
+![](../../images/design_patterns/bp_5.png)
+![](../../images/design_patterns/bp_6.png)
+![](../../images/design_patterns/bp_7.png)
+![](../../images/design_patterns/bp_8.png)
+![](../../images/design_patterns/bp_9.png)
+![](../../images/design_patterns/bp_10.png)
 
 
 [Back To Top](#Table-Of-Contents)
@@ -220,6 +247,11 @@ class Pizza {
 
 [Back To Top](#Table-Of-Contents)
 
+Reference:
+
+* [https://refactoring.guru/design-patterns/prototype](https://refactoring.guru/design-patterns/prototype)
+
+
 ## Intent
 Prototype is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.
 
@@ -265,6 +297,11 @@ An object that supports cloning is called a prototype. When your objects have do
 ![](../../images/line.png)
 
 [Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/singleton](https://refactoring.guru/design-patterns/singleton)
+
 
 ### Intent
 
