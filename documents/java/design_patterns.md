@@ -44,6 +44,9 @@ Design patterns are typical solutions to common problems in software design. Eac
 [Back To Top](#Table-Of-Contents)
 
 ### Creational patterns 
+
+[Back To Top](#Table-Of-Contents)
+
 Provide object creation mechanisms that increase flexibility and reuse of existing code.
 
 * Factory Method: Also known as: Virtual Constructor
@@ -60,6 +63,8 @@ Provide object creation mechanisms that increase flexibility and reuse of existi
 
 
 ### Structural patterns 
+
+[Back To Top](#Table-Of-Contents)
 
 Explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
 
@@ -81,6 +86,8 @@ Explain how to assemble objects and classes into larger structures, while keepin
 
 
 ### Behavioral patterns 
+
+[Back To Top](#Table-Of-Contents)
 
 Take care of effective communication and the assignment of responsibilities between objects.
 
