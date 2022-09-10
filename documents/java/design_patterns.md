@@ -1,5 +1,7 @@
 # Design Patterns
 
+## Table Of Contents
+
 - [What's a design pattern](#Whats-a-design-pattern)
 - [Classification of patterns](#Classification-of-patterns)
 - Creational patterns
