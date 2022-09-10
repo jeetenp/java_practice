@@ -4,12 +4,30 @@
 
 - [What's a design pattern](#Whats-a-design-pattern)
 - [Classification of patterns](#Classification-of-patterns)
-- Creational patterns
+- [Creational patterns](#Creational-patterns)
   - [Factory Method](#Factory-Method)
   - [Abstract Factory](#Abstract-Factory)
   - [Builder](#Builder) 
   - [Prototype](#Prototype)
   - [Singleton](#Singleton)
+- [Structural patterns](#Structural-patterns)
+  - Adapter
+  - Bridge
+  - Composite
+  - Decorator
+  - Facade
+  - Flyweight
+  - Proxy
+- [Behavioral patterns](#Behavioral-patterns)
+  - Chain of Responsibility
+  - Command
+  - Iterator
+  - Memento
+  - Observer
+  - State
+  - Strategy
+  - Template Method
+  - Visitor
 
 ## What's a design pattern?
 ![](../../images/line.png)
