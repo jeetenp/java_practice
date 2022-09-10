@@ -11,7 +11,7 @@ HashMap is a part of the Java collection framework.
 * It uses an array and LinkedList data structure internally for storing Key and Value. 
 * There are four fields in HashMap.
 
-![](../../images/hashmap_node.png)
+![](../../images/collections/hashmap_node.png)
 
 https://www.youtube.com/watch?v=f0n5-LPMSXU
 

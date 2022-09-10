@@ -1,14 +1,15 @@
-#Table Of Contents
+## Table Of Contents
 
 - [Collections](#collections)
   - [Difference Collection and collections in the context of Java](#difference-collection-and-collections-in-the-context-of-java)
   - [Hierarchy of the Collection framework](#hierarchy-of-the-collection-framework)
     - [Iterator and ListIterator](#iterator-and-listiterator)
-  - [List {#list}](#list-list)
+  - [List](#list)
     - [ArrayList](#arraylist)
     - [LinkedList](#linkedlist)
     - [Vector](#vector)
     - [Stack](#stack)
+    - [CopyOnWriteArrayList](#CopyOnWriteArrayList)
   - [ArrayList and LinkedList](#arraylist-and-linkedlist)
   - [ArrayList and Vector](#arraylist-and-vector)
   - [Set Interface](#set-interface)
@@ -20,7 +21,9 @@
 # Collections
 
 ## Difference Collection and collections in the context of Java
+![](../../images/line.png)
 
+[Back To Top](#Table-Of-Contents)
 
 | Collection                                                                                                                                                                               | Collections                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,7 +31,13 @@
 | The collection is considered as the root interface of the collection framework. It provides several classes and interfaces to represent a group of individual objects as a single unit. | It defines several utility methods like sorting and searching which is used to operate on collection. It has all static methods. |
 | Since Java 8, the Collection is an interface with a static function. Abstract and default methods can also be found in the Interface.                                                   | It only has static methods in it.                                                                                                |
 
+[Back To Top](#Table-Of-Contents)
+
+
 ## Hierarchy of the Collection framework
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 Collection framework hierarchy is made up of four fundamental interfaces: 
 * Collection, 
@@ -41,14 +50,19 @@ and two specific interfaces for sorting called
 
 The **java.util** package contains all of the collection framework's interfaces and classes. The following diagram depicts the Java collection structure.
 
-![](../../images/collection_hierarchy.png)
+![](../../images/collections/collection_hierarchy.png)
 
 Here, e denotes extends, i denotes implements
 
-![](../../images/map_hierarchy.png)
+![](../../images/collections/map_hierarchy.png)
+
+[Back To Top](#Table-Of-Contents)
+
 
 ### Iterator and ListIterator
+![](../../images/line.png)
 
+[Back To Top](#Table-Of-Contents)
 
 | Iterator                                                                        | ListIterator                                                                                   |
 | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -56,7 +70,10 @@ Here, e denotes extends, i denotes implements
 | The Iterator can be used in List, Set, and Queue.                               | ListIterator can be used in List only.                                                         |
 | The Iterator can only perform remove operation while traversing the collection. | ListIterator can perform ?add,? ?remove,? and ?set? operation while traversing the collection. |
 
-## List {#list}
+## List
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 1. Elements are arranged sequentially ordered.
 2. List maintains an order of elements means the order is retained in which we add elements, and the same sequence we will get while retrieving elements.
@@ -64,9 +81,15 @@ Here, e denotes extends, i denotes implements
 4. The list allows storing duplicate elements in Java.
 5. ArrayList, vector, and LinkedList are three concrete subclasses that implement the list interface.
 
-![](../../images/collection_list_hierarchy.png)
+![](../../images/collections/collection_list_hierarchy.png)
+
+[Back To Top](#Table-Of-Contents)
 
 ### ArrayList
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 * ArrayList provides us with dynamic arrays in Java.
 * Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
@@ -77,7 +100,13 @@ Here, e denotes extends, i denotes implements
 ArrayList<Integer> arrlist = new ArrayList<Integer>(n);
 ```
 
+[Back To Top](#Table-Of-Contents)
+
 ### LinkedList
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 * A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
 * In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
@@ -88,9 +117,13 @@ LinkedList llist = new LinkedList();
 
 * The elements in a linked list are linked using pointers as shown in the below image:
 
-![](../../images/linkedlist.png)
+![](../../images/collections/linkedlist.png)
 
 ### Vector
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 * A vector provides us with dynamic arrays in Java.
 * Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
@@ -102,6 +135,10 @@ Vector<Integer> v = new Vector();
 
 ### Stack
 
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
 * The stack is the subclass of Vector.
 * It implements the last-in-first-out data structure, i.e., Stack.
 * The stack contains all of the methods of Vector class and
@@ -111,9 +148,26 @@ Vector<Integer> v = new Vector();
     Stack<E> stack = new Stack<E>();
 ```
 
-![](../../images/stack.png)
+![](../../images/collections/stack.png)
+
+## CopyOnWriteArrayList
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+It is an enhanced version of ArrayList in which all modifications (add, set, remove, etc) are implemented by making a fresh copy. 
+
+It is found in java.util.concurrent package. It is a data structure created to be used in a concurrent environment.
+
+
+[Back To Top](#Table-Of-Contents)
 
 ## ArrayList and LinkedList
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 
 | ArrayList                                                     | LinkedList                                                        |
@@ -126,6 +180,10 @@ Vector<Integer> v = new Vector();
 
 ## ArrayList and Vector
 
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
 
 | ArrayList                                                 | Vector                                                             |
 | ----------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -136,14 +194,23 @@ Vector<Integer> v = new Vector();
 
 ## Set Interface
 
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
 * This interface represents a collection of elements that contains unique elements
 * Set interface does not maintain any order while storing elements and while retrieving, we may not get the same order as we put elements.
 * Set does not allow any duplicate elements.
 * <ins>**HashSet, LinkedHashSet, TreeSet**</ins> classes implements the set interface and sorted interface extends a set interface.
 
-![](../../images/collection_set_hierarchy.png)
+![](../../images/collections/collection_set_hierarchy.png)
 
 ### HashSet
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
 
 `public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Serializable`
 
@@ -161,9 +228,13 @@ HashSet hs = new HashSet();
 ```
 
 
-![](../../images/hashset.png)
+![](../../images/collections/hashset.png)
 
 ### LinkedHashSet
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 ```java
 public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, Serializable
@@ -179,14 +250,26 @@ public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, S
 
 1. [Example 1](../../src/main/java/org/learning/javapractice/collections/set/LinkedHashSetExample1.java)
 
-![](../../images/linkedhashset.png)
+![](../../images/collections/linkedhashset.png)
+
+[Back To Top](#Table-Of-Contents)
 
 ## SortedSet Interface
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 * This interface extends a set, provides a ordering on its elements.
 * <ins>**TreeSet**</ins> implements the sorted interface.
 
+[Back To Top](#Table-Of-Contents)
+
 ### TreeSet
+
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
 
 1. It inherits AbstractSet class and implements the NavigableSet interface.
 2. Contains unique elements only like HashSet
@@ -197,4 +280,4 @@ public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, S
 7. TreeSet doesn’t use hashCode() and equals() methods to compare it’s elements.
 8. It uses compare() (or compareTo()) method to determine the equality of two elements.
 
-![](../../images/treeset.png)
+![](../../images/collections/treeset.png)

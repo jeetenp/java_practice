@@ -5,19 +5,23 @@
 ## Table Of Contents
 
 
-| No. | Topics                                                                          |
-| --- |---------------------------------------------------------------------------------|
-| *   | [SOLID Principles](#Solid-Principle)                                            |
-| *   | [12 Factor App](#12-Factor-App)                                                 |
-| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                            |
+| No. | Topics                                                                            |
+| --- |-----------------------------------------------------------------------------------|
+| *   | [SOLID Principles](#Solid-Principle)                                              |
+| *   | [12 Factor App](#12-Factor-App)                                                   |
+| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
 | *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
-| *   | [Memory Management](#memory-management)                                         |
-| *   | [Immutable Objects](#Immutable-object)                                          |
+| *   | [Memory Management](#memory-management)                                           |
+| *   | [Immutable Objects](#Immutable-object)                                            |
 
 
 ## 12 Factor App
 ![](../../images/line.png)
 [Back To Top](#Table-Of-Contents)
+
+Reference:
+* [https://www.redhat.com/architect/12-factor-app](https://www.redhat.com/architect/12-factor-app)
+
 
 The 12 Factor App methodology is pattern to designing scalable application architecture.
 
@@ -82,20 +86,54 @@ The application and its dependencies are deployed into the newly provisioned run
 
 Execute the app as one or more stateless processes
 
+This means that no single process keeps track of the state of another process
 
+![](../../images/core_java/12_factor_app_processes.png)
 
 
 ### Port binding
 
+Export services via port binding
+
+The principle of Port Binding asserts that a service or application is identifiable to the network by port number, not a domain name.
+
+The reasoning is that domain names and associated IP addresses can be assigned on-the-fly by manual manipulation and automated service discovery mechanisms. Thus, using them as a point of reference is unreliable. However, exposing a service or application to the network according to port number is more reliable and easier to manage.
+
+![](../../images/core_java/12_factor_app_port_binding.png)
+
 ### Concurrency
+
+Scale-out via the process mode
+
+Concurrency recommends organizing processes according to their purpose and then separating those processes so that they can be scaled up and down according to need.
+
+Supporting concurrency means that different parts of an application can be scaled up to meet the need at hand.
+![](../../images/core_java/12_factor_app_concurrancy.png)
 
 ### Disposability
 
+Maximize robustness with fast startup and graceful shutdown
+
+* Start Up: Graceful startup will ensure that all database connections and access to other network resources are operational.
+* Shutdown: disposability advocates ensuring that all database connections and other network resources are terminated properly and that all shutdown activity is logged
+
 ### Dev/prod parity
+
+Keep development, staging, and production as similar as possible
+
+Dll deployment paths are similar yet independent
 
 ### Logs
 
+Treat logs as event streams
+
+Twelve-factor app principles advocate separating the log generation and processing the log's information.
+
 ### Admin processes
+Run admin/management tasks as one-off processes
+
+There is a number of one-off processes as part of the application deployment like data migration, executing one-off (happens only once) scripts in a specific environment.
+
 
 
 [Back To Top](#Table-Of-Contents)
@@ -334,7 +372,7 @@ To create immutable because:
 
 Example given below:
 
-```
+```java
  // class is declared final, so it cannot be extended 
 final class ImmutableClass {
 
