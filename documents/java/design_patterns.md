@@ -11,9 +11,9 @@
   - [Prototype](#Prototype)
   - [Singleton](#Singleton)
 - [Structural patterns](#Structural-patterns)
-  - Adapter
-  - Bridge
-  - Composite
+  - [Adapter](#Adapter)
+  - [Bridge](#Bridge)
+  - [Composite](#Composite)
   - Decorator
   - Facade
   - Flyweight
@@ -355,6 +355,114 @@ All implementations of the Singleton have these two steps in common:
 
 ![](../../images/design_patterns/cp_singleton_1.png)
 
+
+[Back To Top](#Table-Of-Contents)
+
+
+## Adapter
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/adapter](https://refactoring.guru/design-patterns/adapter)
+
+### Intent
+Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
+
+### Problem
+
+Imagine that you’re creating a stock market monitoring app. The app downloads the stock data from multiple sources in XML format and then displays nice-looking charts and diagrams for the user.
+
+At some point, you decide to improve the app by integrating a smart 3rd-party analytics library. But there’s a catch: the analytics library only works with data in JSON format.
+
+![](../../images/design_patterns/sp_adapter_1.png)
+
+You can’t use the analytics library “as is” because it expects the data in a format that’s incompatible with your app.
+
+### Solution
+
+You can create an adapter. This is a special object that converts the interface of one object so that another object can understand it.
+
+An adapter wraps one of the objects to hide the complexity of conversion happening behind the scenes.
+
+![](../../images/design_patterns/sp_adapter_2.png)
+
+
+### Applicability
+* Use the Adapter class when you want to use some existing class, but its interface isn’t compatible with the rest of your code.
+* Use the pattern when you want to reuse several existing subclasses that lack some common functionality that can’t be added to the superclass.
+
+
+[Back To Top](#Table-Of-Contents)
+
+
+## Bridge
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/bridge](https://refactoring.guru/design-patterns/bridge)
+
+### Intent
+Bridge is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
+
+### Problem
+Say you have a geometric Shape class with a pair of subclasses: Circle and Square. 
+
+You want to extend this class hierarchy to incorporate colors, so you plan to create Red and Blue shape subclasses. However, since you already have two subclasses, you’ll need to create four class combinations such as BlueCircle and RedSquare.
+
+Adding new shape types and colors to the hierarchy will grow it exponentially. For example, to add a triangle shape you’d need to introduce two subclasses, one for each color. And after that, adding a new color would require creating three subclasses, one for each shape type. The further we go, the worse it becomes.
+
+
+![](../../images/design_patterns/sp_bridge_1.png)
+
+### Solution
+
+This problem occurs because we’re trying to extend the shape classes in two independent dimensions: by form and by color. That’s a very common issue with class inheritance.
+
+The Bridge pattern attempts to solve this problem by switching from inheritance to the object composition.
+
+What this means is that you extract one of the dimensions into a separate class hierarchy, so that the original classes will reference an object of the new hierarchy, instead of having all of its state and behaviors within one class.
+
+You can prevent the explosion of a class hierarchy by transforming it into several related hierarchies.
+
+![](../../images/design_patterns/sp_bridge_2.png)
+
+Following this approach, we can extract the color-related code into its own class with two subclasses: Red and Blue. The Shape class then gets a reference field pointing to one of the color objects. Now the shape can delegate any color-related work to the linked color object. That reference will act as a bridge between the Shape and Color classes. From now on, adding new colors won’t require changing the shape hierarchy, and vice versa.
+
+### Structure
+![](../../images/design_patterns/sp_bridge_3.png)
+
+
+[Back To Top](#Table-Of-Contents)
+
+
+## Composite
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/composite](https://refactoring.guru/design-patterns/composite)
+
+
+
+[Back To Top](#Table-Of-Contents)
+
+
+## Topic
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/bridge](https://refactoring.guru/design-patterns/bridge)
 
 
 [Back To Top](#Table-Of-Contents)
