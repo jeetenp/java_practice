@@ -5,14 +5,15 @@
 ## Table Of Contents
 
 
-| No. | Topics                                                                            |
-| --- |-----------------------------------------------------------------------------------|
-| *   | [SOLID Principles](#Solid-Principle)                                              |
-| *   | [12 Factor App](#12-Factor-App)                                                   |
-| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
-| *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
-| *   | [Memory Management](#memory-management)                                           |
-| *   | [Immutable Objects](#Immutable-object)                                            |
+| No. | Topics                                                                             |
+| --- |------------------------------------------------------------------------------------|
+| *   | [12 Factor App](#12-Factor-App)                                                    |
+| *   | [SOLID Principles](#Solid-Principle)                                               |
+| *   | [12 Factor App](#12-Factor-App)                                                    |
+| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                               |
+| *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture)  |
+| *   | [Memory Management](#memory-management)                                            |
+| *   | [Immutable Objects](#Immutable-object)                                             |
 
 
 ## 12 Factor App

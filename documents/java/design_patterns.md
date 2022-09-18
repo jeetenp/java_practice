@@ -14,7 +14,7 @@
   - [Adapter](#Adapter)
   - [Bridge](#Bridge)
   - [Composite](#Composite)
-  - Decorator
+  - [Decorator](#Decorator)
   - Facade
   - Flyweight
   - Proxy
@@ -450,10 +450,105 @@ Reference:
 
 * [https://refactoring.guru/design-patterns/composite](https://refactoring.guru/design-patterns/composite)
 
+Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.
+![](../../images/design_patterns/sp_3.png)
+
+### Problem
+Using the Composite pattern makes sense only when the core model of your app can be represented as a tree.
+
+For example, imagine that you have two types of objects: Products and Boxes. A Box can contain several Products as well as a number of smaller Boxes. These little Boxes can also hold some Products or even smaller Boxes, and so on.
+
+![](../../images/design_patterns/sp_composite_1.png)
+
+### Solution
+The Composite pattern suggests that you work with Products and Boxes through a common interface which declares a method for calculating the total price.
+
+### Structure
+
+![](../../images/design_patterns/sp_composite_2.png)
+
+Example:
+
+![](../../images/design_patterns/sp_composite_3.png)
+
+### Applicability
+
+* Use the Composite pattern when you have to implement a tree-like object structure.
+* Use the pattern when you want the client code to treat both simple and complex elements uniformly.
 
 
 [Back To Top](#Table-Of-Contents)
 
+
+## Decorator
+![](../../images/line.png)
+
+[Back To Top](#Table-Of-Contents)
+
+Reference:
+
+* [https://refactoring.guru/design-patterns/decorator](https://refactoring.guru/design-patterns/decorator)
+
+Decorator pattern allows a user to add new functionality to an existing object without altering its structure.
+
+Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+![](../../images/design_patterns/sp_decorator_1.png)
+
+### Problem
+
+Imagine that you’re working on a notification library which lets other programs notify their users about important events.
+
+The initial version of the library was based on the Notifier class that had only a few fields, a constructor and a single send method.
+
+At some point, you realize that users of the library expect more than just email notifications. Many of them would like to receive an SMS about critical issues. Others would like to be notified on Facebook and, of course, the corporate users would love to get Slack notifications.
+
+![](../../images/design_patterns/sp_decorator_2.png)
+
+You have to find some other way to structure notifications classes so that their number won’t accidentally break some Guinness record.
+
+
+### Solution
+
+Extending a class is the first thing that comes to mind when you need to alter an object’s behavior. However, inheritance has several serious caveats that you need to be aware of.
+
+* Inheritance is static. You can’t alter the behavior of an existing object at runtime. You can only replace the whole object with another one that’s created from a different subclass.
+* Subclasses can have just one parent class. In most languages, inheritance doesn’t let a class inherit behaviors of multiple classes at the same time.
+
+One of the ways to overcome these caveats is by using Aggregation or Composition  instead of Inheritance. Both of the alternatives work almost the same way: one object has a reference to another and delegates it some work, whereas with inheritance, the object itself is able to do that work, inheriting the behavior from its superclass.
+
+“Wrapper” is the alternative nickname for the Decorator pattern that clearly expresses the main idea of the pattern. A wrapper is an object that can be linked with some target object. The wrapper contains the same set of methods as the target and delegates to it all requests it receives.
+
+As I mentioned, the wrapper implements the same interface as the wrapped object. That’s why from the client’s perspective these objects are identical. Make the wrapper’s reference field accept any object that follows that interface. This will let you cover an object in multiple wrappers, adding the combined behavior of all the wrappers to it.
+
+In our notifications example, let’s leave the simple email notification behavior inside the base Notifier class, but turn all other notification methods into decorators.
+
+![](../../images/design_patterns/sp_decorator_3.png)
+
+The client code would need to wrap a basic notifier object into a set of decorators that match the client’s preferences. The resulting objects will be structured as a stack.
+
+![](../../images/design_patterns/sp_decorator_4.png)
+
+Example
+![](../../images/design_patterns/sp_decorator_5.png)
+
+Wearing clothes is an example of using decorators. When you’re cold, you wrap yourself in a sweater. If you’re still cold with a sweater, you can wear a jacket on top. If it’s raining, you can put on a raincoat. All of these garments “extend” your basic behavior but aren’t part of you, and you can easily take off any piece of clothing whenever you don’t need it.
+
+### Structure
+
+![](../../images/design_patterns/sp_decorator_6.png)
+
+Example 
+![](../../images/design_patterns/sp_decorator_7.png)
+
+### Applicability
+Use the Decorator pattern when you need to be able to assign extra behaviors to objects at runtime without breaking the code that uses these objects.
+
+Use the pattern when it’s awkward or not possible to extend an object’s behavior using inheritance.
+
+
+
+
+[Back To Top](#Table-Of-Contents)
 
 ## Topic
 ![](../../images/line.png)
