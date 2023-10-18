@@ -5,19 +5,23 @@
 ## Table Of Contents
 
 
-| No. | Topics                                                                             |
-| --- |------------------------------------------------------------------------------------|
-| *   | [12 Factor App](#12-Factor-App)                                                    |
-| *   | [SOLID Principles](#Solid-Principle)                                               |
-| *   | [12 Factor App](#12-Factor-App)                                                    |
-| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                               |
-| *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture)  |
-| *   | [Memory Management](#memory-management)                                            |
-| *   | [Immutable Objects](#Immutable-object)                                             |
+| No. | Topics                                                                            |
+| --- |-----------------------------------------------------------------------------------|
+| *   | [12 Factor App](#12-Factor-App)                                                   |
+| *   | [SOLID Principles](#Solid-Principle)                                              |
+| *   | [12 Factor App](#12-Factor-App)                                                   |
+| *   | [Explain JRE, KDK and JVM](#Explain-JRE-JDK-and-JVM)                              |
+| *   | [JVM (Java Virtual Machine) Architecture](#jvm-java-virtual-machine-architecture) |
+| *   | [Memory Management](#memory-management)                                           |
+| *   | [Immutable Objects](#Immutable-object)                                            |
+| *   | [Weak Soft and Phantom references](#Weak-Soft-Phantom-References)                 |
+| *   | [serialVersionUID, What and Why](#serialVersionUID-what-and-why)                  |
+| *   | [Try-With-Resources](#Try-With-Resources)                              |
 
 
 ## 12 Factor App
 ![](../../images/line.png)
+
 [Back To Top](#Table-Of-Contents)
 
 Reference:
@@ -394,18 +398,64 @@ final class ImmutableClass {
 
 [Back To Top](#Table-Of-Contents)
 
-## Title of Topic
+## Weak Soft and Phantom references
 ![](../../images/line.png)
 [Back To Top](#Table-Of-Contents)
+
+Reference:
+* [https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792#:~:text=An%20object%20that%20is%20reachable,free%20the%20reference%20until%20cleared](https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792#:~:text=An%20object%20that%20is%20reachable,free%20the%20reference%20until%20cleared.)
 
 Body of the topic
 
 [Back To Top](#Table-Of-Contents)
 
-## Title of Topic
+## serialVersionUID, What and Why
 ![](../../images/line.png)
 [Back To Top](#Table-Of-Contents)
 
-Body of the topic
+References:
+* [https://www.geeksforgeeks.org/serialversionuid-in-java/](https://www.geeksforgeeks.org/serialversionuid-in-java/)
+* [https://www.youtube.com/watch?v=XRHtOqGSH-Y](https://www.youtube.com/watch?v=XRHtOqGSH-Y)
+
+Body of the topicsss
+
+[Back To Top](#Table-Of-Contents)
+
+## Try-With-Resources
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+References:
+* https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+* 
+The try-with-resources statement is a try statement that declares one or more resources. 
+
+A resource is an object that must be closed after the program is finished with it. 
+
+The try-with-resources statement ensures that each resource is closed at the end of the statement. 
+
+Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.
+
+The following example it uses an instance of FileReader and BufferedReader to read data from the file. FileReader and BufferedReader are resources that must be closed after the program is finished with it:
+
+	static String readFirstLineFromFile(String path) throws IOException {
+	    try (FileReader fr = new FileReader(path);
+	         BufferedReader br = new BufferedReader(fr)) {
+	        return br.readLine();
+	    }
+	}	
+
+
+[Back To Top](#Table-Of-Contents)
+
+
+## Title
+![](../../images/line.png)
+[Back To Top](#Table-Of-Contents)
+
+References:
+*
+
+Body of the topicsss
 
 [Back To Top](#Table-Of-Contents)
