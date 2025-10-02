@@ -1,0 +1,150 @@
+import re
+import javalang
+from pathlib import Path
+from typing import Callable, Dict
+
+class JavaSonarFixer:
+    def __init__(self, file_path: str):
+        self.file_path = Path(file_path)
+        if not self.file_path.exists():
+            raise FileNotFoundError(f"File not found: {file_path}")
+
+        self.code = self.file_path.read_text(encoding="utf-8")
+
+        # Rule registry: Map Sonar rule IDs to fix methods
+        self.rule_registry: Dict[str, Callable] = {
+            "S1128": self.fix_unused_imports,
+            "S1172": self.fix_unused_parameters,
+            "S1481": self.fix_unused_locals,
+            "S2153": self.fix_missing_override,
+            "S1118": self.fix_utility_class_constructor,
+        }
+
+    # ----------------------------
+    # Rule Implementations
+    # ----------------------------
+
+    # Rule S1128: Remove unused imports
+    def fix_unused_imports(self):
+        lines = self.code.splitlines()
+        imports = [line for line in lines if line.strip().startswith("import ")]
+        code_wo_imports = "\n".join([line for line in lines if not line.strip().startswith("import ")])
+
+        used_types = set()
+        try:
+            tokens = list(javalang.tokenizer.tokenize(code_wo_imports))
+            for t in tokens:
+                if isinstance(t, javalang.tokenizer.Identifier):
+                    used_types.add(t.value)
+        except Exception:
+            return self
+
+        new_imports = []
+        for imp in imports:
+            type_name = imp.split(".")[-1].replace(";", "")
+            if type_name in used_types:
+                new_imports.append(imp)
+
+        self.code = "\n".join(new_imports + [line for line in lines if not line.strip().startswith("import ")])
+        return self
+
+    # Rule S1172: Remove unused parameters
+    def fix_unused_parameters(self):
+        try:
+            tree = javalang.parse.parse(self.code)
+        except Exception:
+            return self
+
+        methods = [(path, node) for path, node in tree.filter(javalang.tree.MethodDeclaration)]
+        for _, method in methods:
+            if not method.parameters:
+                continue
+            used_vars = set(re.findall(r'\b\w+\b', self.code))
+            for param in method.parameters:
+                if param.name not in used_vars:
+                    pattern = r'\b' + re.escape(param.type.name + " " + param.name) + r'\b,?\s*'
+                    self.code = re.sub(pattern, "", self.code)
+
+        return self
+
+    # Rule S1481: Remove unused local variables
+    def fix_unused_locals(self):
+        locals_pattern = r'(\w+\s+\w+\s*=\s*[^;]+;)'
+        matches = re.findall(locals_pattern, self.code)
+        for match in matches:
+            var_name = match.split()[1]
+            if not re.search(r'\b' + var_name + r'\b', self.code.split(match, 1)[1]):
+                self.code = self.code.replace(match, "")
+        return self
+
+    # Rule S2153: Add missing @Override
+    def fix_missing_override(self):
+        try:
+            tree = javalang.parse.parse(self.code)
+        except Exception:
+            return self
+
+        methods = [(path, node) for path, node in tree.filter(javalang.tree.MethodDeclaration)]
+        lines = self.code.splitlines()
+
+        for _, method in methods:
+            if method.name in ("toString", "equals", "hashCode"):
+                before_method = "\n".join(lines[max(0, method.position.line-3):method.position.line])
+                if "@Override" not in before_method:
+                    lines.insert(method.position.line-1, "    @Override")
+
+        self.code = "\n".join(lines)
+        return self
+
+    # Rule S1118: Utility classes should not have public constructors
+    def fix_utility_class_constructor(self):
+        try:
+            tree = javalang.parse.parse(self.code)
+        except Exception:
+            return self
+
+        classes = [(path, node) for path, node in tree.filter(javalang.tree.ClassDeclaration)]
+        for _, clazz in classes:
+            if all(m.modifiers == {"static"} for m in clazz.methods):
+                pattern = rf'public {clazz.name}\s*\(\s*\)\s*{{\s*}}'
+                replacement = f'private {clazz.name}() {{}}'
+                self.code = re.sub(pattern, replacement, self.code)
+        return self
+
+    # ----------------------------
+    # Framework Functions
+    # ----------------------------
+
+    def fix_rule(self, rule_id: str):
+        """Apply a single rule fix based on Sonar rule ID"""
+        if rule_id not in self.rule_registry:
+            print(f"⚠️ Rule {rule_id} not implemented yet.")
+            return self
+        return self.rule_registry[rule_id]()
+
+    def fix_all(self):
+        """Apply all registered deterministic fixes"""
+        for rule_id, func in self.rule_registry.items():
+            try:
+                func()
+            except Exception as e:
+                print(f"⚠️ Skipped {rule_id} due to error: {e}")
+        return self
+
+    def save(self, output_path: str = None):
+        """Write fixed code back to file"""
+        target = self.file_path if output_path is None else Path(output_path)
+        target.write_text(self.code, encoding="utf-8")
+        print(f"✅ Updated file saved at: {target}")
+
+
+if __name__ == "__main__":
+    # Example usage
+    fixer = JavaSonarFixer("MyUtil.java")
+
+    # Run all fixes
+    fixer.fix_all().save()
+
+    # OR run a specific rule only
+    # fixer.fix_rule("S1128").save("MyUtil_fixed.java")
+
