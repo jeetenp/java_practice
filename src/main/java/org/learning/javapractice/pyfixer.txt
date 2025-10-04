@@ -1,0 +1,45 @@
+import org.openrewrite.InMemoryExecutionContext;
+import org.openrewrite.Recipe;
+import org.openrewrite.SourceFile;
+import org.openrewrite.java.JavaParser;
+import org.openrewrite.java.RemoveUnusedImports;
+import org.openrewrite.LargeSourceSetImpl;
+
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class RemoveImportsExample {
+    public static void main(String[] args) {
+        String code = """
+            import java.util.*;
+
+            class Test {
+                boolean check(String s) {
+                    return s.isBlank();
+                }
+            }
+            """;
+
+        JavaParser parser = JavaParser.fromJavaVersion()
+                .logCompilationWarningsAndErrors(true)
+                .build();
+
+        List<SourceFile> parsed = parser.parse(
+                code,
+                Paths.get("Test.java"),
+                new InMemoryExecutionContext()
+        ).collect(Collectors.toList());
+
+        Recipe recipe = new RemoveUnusedImports();
+
+        var result = recipe.run(LargeSourceSetImpl.from(parsed),
+                new InMemoryExecutionContext());
+
+        result.getChangeset().getAllResults().forEach(r -> {
+            System.out.println("Before:\n" + r.getBefore().printAll());
+            System.out.println("After:\n" + r.getAfter().printAll());
+        });
+    }
+}
+
