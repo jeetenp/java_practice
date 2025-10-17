@@ -1,0 +1,81 @@
+{
+  "RemoveUnusedImports": {
+    "recipe": "org.openrewrite.java.RemoveUnusedImports",
+    "description": "Remove import statements that are unused",
+    "sonarRuleCandidates": ["RSPEC-S1128", "java:S1128"] 
+  },
+  "UseMapContainsKey": {
+    "recipe": "org.openrewrite.staticanalysis.UseMapContainsKey",
+    "description": "Replace map.keySet().contains(...) with map.containsKey(...)",
+    "sonarRuleCandidates": ["RSPEC-S1215", "java:S1215"]
+  },
+  "UseListSort": {
+    "recipe": "org.openrewrite.staticanalysis.UseListSort",
+    "description": "Replace Collections.sort(list) with list.sort(...) in Java 8+",
+    "sonarRuleCandidates": ["java:S2290", "RSPEC-S2290"]
+  },
+  "FinalizeMethodArguments": {
+    "recipe": "org.openrewrite.staticanalysis.FinalizeMethodArguments",
+    "description": "Make method parameters final when safe",
+    "sonarRuleCandidates": ["java:S2933", "RSPEC-S2933"]
+  },
+  "CodeCleanup": {
+    "recipe": "org.openrewrite.staticanalysis.CodeCleanup",
+    "description": "Generic cleanup: remove redundant code, simplify expressions",
+    "sonarRuleCandidates": ["java:S1481", "java:S1135", "java:S1065"]
+  },
+  "CommonStaticAnalysis": {
+    "recipe": "org.openrewrite.staticanalysis.CommonStaticAnalysis",
+    "description": "Composite recipe covering 50+ static analysis issues", 
+    "containedRecipes": [
+      "UseMapContainsKey",
+      "UseListSort",
+      "FinalizeMethodArguments",
+      "Boolean checks should not be inverted",
+      "Catch clause should do more than just rethrow",
+      "new BigDecimal(double) replacement",
+      "BigDecimal rounding constants to RoundingMode",
+      "CaseInsensitive comparisons do not alter case"
+    ]
+  },
+  "RemoveEmptyBlocks": {
+    "recipe": "org.openrewrite.staticanalysis.RemoveEmptyBlocks",
+    "description": "Remove blocks with no statements",
+    "sonarRuleCandidates": ["java:S1116"] 
+  },
+  "CatchClauseShouldDoMoreThanJustRethrow": {
+    "recipe": "org.openrewrite.staticanalysis.CatchClauseShouldDoMoreThanJustRethrow",
+    "description": "Remove or simplify catch blocks that merely rethrow",
+    "sonarRuleCandidates": ["java:S1148", "java:S112"] 
+  },
+  "AtomicPrimitiveEquality": {
+    "recipe": "org.openrewrite.staticanalysis.AtomicPrimitiveEquality",
+    "description": "Fix equality comparisons on AtomicBoolean / Integer / Long to compare values",
+    "sonarRuleCandidates": ["java:S2111", "S2111"] 
+  },
+  "BigDecimalConstructorDouble": {
+    "recipe": "org.openrewrite.staticanalysis.BigDecimalConstructorDouble",
+    "description": "Replace new BigDecimal(double) with BigDecimal.valueOf(...)",
+    "sonarRuleCandidates": ["java:S2112"] 
+  },
+  "BigDecimalRoundingConstants": {
+    "recipe": "org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnum",
+    "description": "Convert numeric rounding constants to RoundingMode enums",
+    "sonarRuleCandidates": ["java:S1226"] 
+  },
+  "BooleanInversion": {
+    "recipe": "org.openrewrite.staticanalysis.BooleanCheckInversion",
+    "description": "Simplify inverted boolean expressions",
+    "sonarRuleCandidates": ["java:S214", "java:S1125"] 
+  },
+  "CaseInsensitiveComparison": {
+    "recipe": "org.openrewrite.staticanalysis.CaseInsensitiveComparisonDoNotAlterCase",
+    "description": "Avoid altering case in case-insensitive comparisons unnecessarily",
+    "sonarRuleCandidates": ["java:S2257"] 
+  },
+  "StringFormatFix": {
+    "recipe": "org.openrewrite.staticanalysis.StringFormatFix",
+    "description": "Fix String.format / String#formatted misuse",
+    "sonarRuleCandidates": ["java:S2272", "java:S2135"] 
+  }
+}
