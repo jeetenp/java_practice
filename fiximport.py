@@ -1,49 +1,41 @@
-import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.ImportDeclaration;
-import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
+package com.yourorg.recipes;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import org.openrewrite.Recipe;
+import org.openrewrite.TreeVisitor;
+import org.openrewrite.java.JavaIsoVisitor;
+import org.openrewrite.java.tree.J;
+import org.openrewrite.marker.Markers;
 
-public class JavaFixer {
+import java.util.regex.Pattern;
 
-    private static CombinedTypeSolver typeSolver;
+public class RemoveCommentedOutCodeRecipe extends Recipe {
 
-    // Initialize SymbolSolver with Reflection + source path
-    public static void initSymbolSolver(String sourceRootPath) {
-        typeSolver = new CombinedTypeSolver();
-        typeSolver.add(new ReflectionTypeSolver()); // JDK classes
-        typeSolver.add(new JavaParserTypeSolver(new File(sourceRootPath))); // Your project sources
+    @Override
+    public String getDisplayName() {
+        return "Remove commented-out code (S125)";
     }
 
-    public static void fixUnusedImports(CompilationUnit cu) {
-        List<ImportDeclaration> imports = new ArrayList<>(cu.getImports());
+    @Override
+    public String getDescription() {
+        return "Remove commented-out Java code fragments based on Sonar rule java:S125.";
+    }
 
-        for (ImportDeclaration imp : imports) {
-            String qualifiedName = imp.getNameAsString(); // e.g., java.util.List
-            String simpleName = imp.getName().getIdentifier(); // e.g., List
+    @Override
+    public TreeVisitor<?, ExecutionContext> getVisitor() {
+        return new JavaIsoVisitor<ExecutionContext>() {
+            private final Pattern codeLikePattern = Pattern.compile(
+                "(if\\s*\\()|(for\\s*\\()|(while\\s*\\()|(public\\s+class)|(private\\s+static)|(System\\.out)|(int\\s+\\w+\\s*\\=)|(return\\s+)");
 
-            // Check if symbol is actually referenced in the code
-            boolean isUsed = cu.findAll(com.github.javaparser.ast.expr.Name.class).stream()
-                    .anyMatch(nameExpr -> {
-                        try {
-                            return JavaParserFacade.get(typeSolver)
-                                    .solve(nameExpr)
-                                    .getCorrespondingDeclaration()
-                                    .getQualifiedName()
-                                    .equals(qualifiedName);
-                        } catch (Exception e) {
-                            return false;
-                        }
-                    });
-
-            if (!isUsed) {
-                cu.getImports().remove(imp);
+            @Override
+            public J.CompilationUnit visitCompilationUnit(J.CompilationUnit cu, ExecutionContext ctx) {
+                J.CompilationUnit c = super.visitCompilationUnit(cu, ctx);
+                if (c.getComments() != null) {
+                    c = c.withComments(c.getComments().stream()
+                            .filter(comment -> !codeLikePattern.matcher(comment.getText()).find())
+                            .toList());
+                }
+                return c;
             }
-        }
+        };
     }
 }
